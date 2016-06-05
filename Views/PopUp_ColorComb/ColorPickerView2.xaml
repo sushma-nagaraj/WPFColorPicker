@@ -1,0 +1,75 @@
+﻿<UserControl x:Class="WPFColorPicker.ColorPickerView2"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"    
+             xmlns:WPFColorPicker="clr-namespace:WPFColorPicker"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">    
+    <UserControl.Resources>
+        <Style x:Key="toggleButtonStyle" TargetType="{x:Type ToggleButton}">
+            <Setter Property="FocusVisualStyle" Value="{StaticResource ButtonFocusVisual1}"/>
+            <Setter Property="Background" Value="{StaticResource ButtonNormalBackgroundFill1}"/>
+            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+            <Setter Property="HorizontalAlignment" Value="Right"/>
+            <Setter Property="VerticalAlignment" Value="Bottom"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type ToggleButton}">
+                        <Border x:Name="buttonBorder" Height="Auto" Width="Auto">
+                            <ContentPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                            Margin="{TemplateBinding Padding}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}" RecognizesAccessKey="True" Width="36.625"/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            </Trigger>
+                            <Trigger Property="IsChecked" Value="True">
+                                <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <Setter Property="BorderThickness" Value="1.5,1.5,0,0" TargetName="buttonBorder" />
+                                <Setter Property="BorderBrush" Value="DarkGray" TargetName="buttonBorder" />
+                                <Setter Property="Background" Value="LightGray" TargetName="buttonBorder" />
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <ToggleButton 
+            x:Name="ColorButton"  
+            Style="{StaticResource toggleButtonStyle}"
+            BorderThickness="0.5,0.5,0.5,0.5" 
+            BorderBrush="#FF000000" 
+            Width="15" Height="15" Padding="0" 
+            HorizontalAlignment="Left" VerticalAlignment="Top" Background="{Binding ElementName=colorPalette, Path=CurrentColor}"
+            Margin="2,0,0,0">
+            <StackPanel>
+                <Image Source="../../Resources/colorChart.png" OpacityMask="Black" />
+                <Border 
+                x:Name="ColorBorder" 
+                Focusable="False" 
+                Background="{Binding Path=CurrentColor}"
+                Height="15" BorderThickness="1,1,1,1" BorderBrush="#b4b4b5" Width="15">
+                    <Border Width="7" Height="7" BorderThickness="0,0,0,0" BorderBrush="{x:Null}" Background="#FFFFFFFF" HorizontalAlignment="Right" VerticalAlignment="Bottom">
+                        <Path Width="4.5" Height="3.839" Fill="#FF000000" Stretch="Fill" Stroke="#FF000000" Data="M-0.024898728,-0.48261954 L3.4753354,-0.47870237 1.7095923,2.3573258 z"/>
+                    </Border>
+                </Border>
+            </StackPanel>            
+        </ToggleButton>
+
+        <Popup x:Name="popup" 
+               StaysOpen="False" 
+               AllowsTransparency="True" 
+               Focusable="True"
+               PopupAnimation="Fade" 
+               Placement="Bottom"
+               SnapsToDevicePixels="True"  
+               PlacementTarget="{Binding ElementName=ColorButton}"  
+               IsOpen="{Binding Path=IsChecked, ElementName=ColorButton}" Closed="popup_Closed">
+            
+            <WPFColorPicker:PopUp2 x:Name="colorComb"></WPFColorPicker:PopUp2>
+        </Popup>
+    </Grid>
+</UserControl>

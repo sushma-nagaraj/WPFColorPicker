@@ -1,0 +1,7 @@
+﻿<Window x:Class="WPFColorPicker.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:WPFColorPicker="clr-namespace:WPFColorPicker"
+        Title="MainWindow" SizeToContent="WidthAndHeight" WindowStartupLocation="CenterScreen">
+    <WPFColorPicker:ColorPicker x:Name="colorPicker" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"></WPFColorPicker:ColorPicker>
+</Window>

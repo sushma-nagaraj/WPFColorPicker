@@ -1,0 +1,70 @@
+﻿<UserControl x:Class="WPFColorPicker.ColorPalette"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="300">
+    <UserControl.Resources>
+        <LinearGradientBrush x:Key="BrightnessGradient" StartPoint="0,1" EndPoint="0,0" ColorInterpolationMode="ScRgbLinearInterpolation">
+            <GradientStop Offset="0" Color="sc# 1, 0,0,0" />
+            <GradientStop Offset="0.5" Color="sc# 1, 0.5,0.5,0.5" />
+            <GradientStop Offset="1" Color="sc# 1, 1,1,1" />
+        </LinearGradientBrush>
+    </UserControl.Resources>
+    <StackPanel Orientation="Vertical">
+        <Border Background="White" BorderThickness="1" BorderBrush="Gray" Margin="12" CornerRadius="3" x:Name="Container">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320"
+                  ShadowDepth="2"
+                  Softness="0.5"
+                  Opacity="0.5"/>
+            </Border.BitmapEffect>
+            <StackPanel>
+                <Border Height="25" Margin="0,0,0,0" CornerRadius="7 7 0 0" Visibility="{Binding TitleBarVisibility}" >
+                    <Grid x:Name="titlePanel">
+                        <TextBlock Text="Color Palette" VerticalAlignment="Center" Margin="5,0,0,0" />
+                        <Thumb x:Name="moveThumb" BorderThickness="0" HorizontalAlignment="Stretch" Tag="{Binding Title}" Cursor="ScrollAll" DragDelta="moveThumb_DragDelta"/>
+                        <Button Style="{DynamicResource DialogCloseButtonStyle}" Click="Cancel_Click" HorizontalAlignment="Right" VerticalAlignment="Center" BorderThickness="0" Margin="5,0" Background="Transparent" Cursor="Hand">
+                        </Button>
+                    </Grid>
+                </Border>
+                <Rectangle Fill="#ffffff" StrokeThickness="0"  Margin="0,0,0,0" VerticalAlignment="Top" Height="1" Visibility="{Binding TitleBarVisibility}"/>
+                <Rectangle Fill="#cfd8da" StrokeThickness="0"  Margin="0,0,0,0" VerticalAlignment="Top" Height="1" Visibility="{Binding TitleBarVisibility}"/>
+                <Border Padding="0,0">
+                    <StackPanel >
+                        <Grid Background="Transparent">
+                            <Border Margin="0,0,0,0" BorderThickness="0" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                <StackPanel Orientation="Vertical" Width="225" Height="Auto" Background="#FFFFFFFF" Margin="0,0,0,8" HorizontalAlignment="Center" VerticalAlignment="Center">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Border x:Name="borderColorChart" Margin="10,10,0,0" VerticalAlignment="Top" Width="174" Height="138" >
+                                            <Grid>
+                                                <Image Stretch="None" Source="../../Resources/colorChart.PNG" MouseDown="Image_MouseDown" MouseMove="Image_MouseMove"/>
+                                                <Ellipse x:Name="colorMarker" Width="12" Height="12" StrokeThickness="2" Stroke="Brown" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="0,0,0,10"/>
+                                            </Grid>
+                                        </Border>
+                                        <Border>
+                                            <StackPanel Orientation="Horizontal">
+                                                <Border x:Name="brightnessSliderBorder" Margin="8,10,0,0" Width="15" Height="138" VerticalAlignment="Top" Background="{DynamicResource BrightnessGradient}">
+                                                </Border>
+                                                <Slider x:Name="brightnessSlider" Margin="0,5,0,0" Orientation="Vertical" Width="9.5" Height="148" 
+        					        IsMoveToPointEnabled="True" Focusable="False" Minimum="0.0" Maximum="1.0" HorizontalAlignment="Center" Style="{DynamicResource SliderStyle}" VerticalAlignment="Center" />
+                                            </StackPanel>
+                                        </Border>
+                                    </StackPanel>
+                                    <StackPanel Orientation="Horizontal" Height="62">
+                                        <Border x:Name="currentColorBorder" HorizontalAlignment="Left" Margin="10,0,25,0" VerticalAlignment="Bottom" Width="82" Height="50" BorderThickness="2" BorderBrush="Black" Background="#FF808080"/>
+                                        <StackPanel Orientation="Vertical" Width="90">
+                                            <Button x:Name="OK" HorizontalAlignment="Right" Margin="20,10,0,0" VerticalAlignment="Bottom" Width="70" Height="23" Content="Ok" Click="Ok_Click" />
+                                            <Button x:Name="Cancel" HorizontalAlignment="Right" Margin="20,5,0,0" VerticalAlignment="Bottom" Width="70" Height="23" Content="Cancel" Click="Cancel_Click"/>
+                                        </StackPanel>
+                                    </StackPanel>
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </StackPanel>
+                </Border>
+            </StackPanel>
+        </Border>
+    </StackPanel>
+</UserControl>

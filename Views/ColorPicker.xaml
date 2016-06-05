@@ -1,0 +1,96 @@
+﻿<UserControl x:Class="WPFColorPicker.ColorPicker"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:WPFColorPicker="clr-namespace:WPFColorPicker"
+        Height="92" Width="200" BorderBrush="Black" BorderThickness="1">
+    
+    <Grid Name="grdColorPicker" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"> 
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="30"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+
+        <Button Name="btnBackground" HorizontalAlignment="Center" Click="btnBackground_Checked" VerticalAlignment="Center" Margin="0,15,0,0"  Grid.Column="0" Grid.Row="0">
+            <Rectangle Height="15" Width="15" Fill="DarkTurquoise"></Rectangle>
+        </Button>
+
+        <Button Name="btnForeground" HorizontalAlignment="Center"  Click="btnForeground_Checked" VerticalAlignment="Center" Margin="-15,0,0,0" Grid.Column="0" Grid.Row="0">
+            <Rectangle Height="15" Width="15" Fill="BlueViolet"></Rectangle>
+        </Button>
+
+        <Grid Name="grdRecentlyUsedColors" Grid.Row="0" Grid.Column="1" HorizontalAlignment="Stretch" VerticalAlignment="Stretch"  >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="20"></RowDefinition>
+                <RowDefinition Height="2"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+                <RowDefinition Height="2"></RowDefinition>
+                <RowDefinition Height="*"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="1"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="1"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="1"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="1"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+                <ColumnDefinition Width="1"></ColumnDefinition>
+                <ColumnDefinition Width="20"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            
+            <TextBlock Text="Recently used Colors" Grid.Column="0" Grid.ColumnSpan="11" Grid.Row="0" HorizontalAlignment="Stretch" VerticalAlignment="Center"></TextBlock>
+
+            <Button Name="btnColor1" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="2" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Red" ></Rectangle>
+            </Button>
+            <Button Name="btnColor2" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="2" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Blue"></Rectangle>
+            </Button>
+            <Button Name="btnColor3" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="2" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Green" ></Rectangle>
+            </Button>
+            <Button Name="btnColor4" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="2" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Yellow" ></Rectangle>
+            </Button>
+            <Button Name="btnColor5" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="8" Grid.Row="2" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Gray" ></Rectangle>
+            </Button>
+            <Button Name="btnColor6" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="10" Grid.Row="2" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="GreenYellow" ></Rectangle>
+            </Button>
+            <Button Name="btnColor7" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="0" Grid.Row="4" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Pink" ></Rectangle>
+            </Button>
+            <Button Name="btnColor8" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="2" Grid.Row="4" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="PowderBlue" ></Rectangle>
+            </Button>
+            <Button Name="btnColor9" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="4" Grid.Row="4" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Purple" ></Rectangle>
+            </Button>
+            <Button Name="btnColor10" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="6" Grid.Row="4" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Brown" ></Rectangle>
+            </Button>
+            <Button Name="btnColor11" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="8" Grid.Row="4" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Black" ></Rectangle>
+            </Button>
+            <Button Name="btnColor12" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Column="10" Grid.Row="4" Click="btnColor_MouseLeftButtonUp" MouseRightButtonUp="btnColor_MouseRightButtonUp">
+                <Rectangle Height="15" Width="15" Fill="Crimson" ></Rectangle>
+            </Button>
+        </Grid>
+
+        <!--<Button Name="btnViewMore" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Grid.Column="1" Grid.Row="1">
+            <Rectangle Height="20" Width="30" Fill="DarkTurquoise"></Rectangle>
+        </Button>-->
+
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="0,0,5,0" Grid.Column="1" Grid.Row="1">
+            <WPFColorPicker:ColorPickerView1 x:Name="btnViewMore" ToolTip="View More Colors" />
+            <WPFColorPicker:ColorPickerView2 x:Name="btnViewmore1" ToolTip="View More Colors- Comb" />
+        </StackPanel>        
+    </Grid>
+</UserControl>
